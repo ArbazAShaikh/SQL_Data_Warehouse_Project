@@ -57,7 +57,7 @@ For our project, data from different raw tables in Bronze will be brought togeth
 
 #### 3. Gold Layer: The Business-Ready Products (Finished Products)
 
-*   **Description**: This is the final layer where data is specifically prepared for business users, reports, and dashboards. It's often modeled into easy-to-understand structures (like a [Star Schema Data Model](05_star_schema_data_model_.md)) that make querying and analysis very simple.
+*   **Description**: This is the final layer where data is specifically prepared for business users, reports, and dashboards. It's often modeled into easy-to-understand structures like a Star Schema Data Model that make querying and analysis very simple.
 *   **Purpose**: To provide a highly optimized, business-friendly view of the data for quick insights and decision-making.
 *   **Analogy**: This is the **finished product** – like gasoline for cars or plastic for manufacturing – ready for immediate use.
 
@@ -188,11 +188,11 @@ GO
 
 1.  Similar to Bronze, it drops the table if it exists.
 2.  It creates the `crm_cust_info` table in the `silver` schema.
-3.  Notice the `dwh_create_date DATETIME2 DEFAULT GETDATE()` column. This "technical column" (following our [Naming Conventions](docs/naming-conventions.md)) automatically records the time when each row was inserted into this Silver table, which is very useful for tracking.
+3.  Notice the `dwh_create_date DATETIME2 DEFAULT GETDATE()` column. This "technical column" (following our [Naming Conventions](docs/naming_conventions.md)) automatically records the time when each row was inserted into this Silver table, which is very useful for tracking.
 
 #### Gold Layer Views (DDL)
 
-The Gold layer is a bit different. Instead of creating physical tables, we often create "views." A view is like a virtual table that shows you data from other tables, but it doesn't store the data itself. It's like a pre-written query that always gives you the latest, most business-ready information. These views follow our [Naming Conventions](docs/naming-conventions.md) and start with `dim_` for dimension tables or `fact_` for fact tables.
+The Gold layer is a bit different. Instead of creating physical tables, we often create "views." A view is like a virtual table that shows you data from other tables, but it doesn't store the data itself. It's like a pre-written query that always gives you the latest, most business-ready information. These views follow our [Naming Conventions](docs/naming_conventions.md) and start with `dim_` for dimension tables or `fact_` for fact tables.
 
 Here’s a snippet from `scripts/gold/ddl_gold.sql` showing how we create a Gold layer view for customers:
 
@@ -228,7 +228,7 @@ GO
 1.  It checks if a view named `gold.dim_customers` exists. If yes, it drops it.
 2.  `CREATE VIEW gold.dim_customers AS SELECT ...` defines a new view called `dim_customers` in the `gold` schema.
 3.  The `SELECT` statement pulls data from *multiple* `silver` tables (`silver.crm_cust_info`, `silver.erp_cust_az12`, `silver.erp_loc_a101`), combines them, and renames columns to be more business-friendly (e.g., `cst_id` becomes `customer_id`).
-4.  It also generates a `customer_key`, which is a special type of identifier called a [Surrogate Key](06_surrogate_keys_.md) that we will learn more about later.
+4.  It also generates a `customer_key`, which is a special type of identifier called a Surrogate Key that we will learn more about later.
 
 This view provides a complete and easy-to-use customer table for reports, without storing any duplicate data.
 
@@ -273,7 +273,7 @@ Here's a quick summary of each layer:
 
 The Medallion Architecture is a powerful way to structure our data warehouse project. By dividing data processing into Bronze (raw), Silver (cleaned), and Gold (business-ready) layers, we ensure data quality, reliability, and ease of use. This foundation is crucial for turning raw data into valuable insights.
 
-In the next chapter, we will dive deeper into the first step of our project: [Database and Schema Initialization](02_database_and_schema_initialization_.md), where we'll set up the environment for our Medallion Architecture.
+In the next chapter, we will dive deeper into the first step of our project:[Database and Schema Initialization, where we'll set up the environment for our Medallion Architecture.
 
 ---
 
