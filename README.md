@@ -116,5 +116,6 @@ Hi there! I'm **Arbaz Ahamad Shaikh**. I am very concise about my problem solvin
 
 Let's stay in touch! Feel free to connect with me on the following platforms:
 
-[![LinkedIn](https://www.linkedin.com/in/arbaz-shaikh-69001522a/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arbaz-shaikh-69001522a/)
+
 
