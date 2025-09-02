@@ -3,33 +3,6 @@
 This project builds a **modern data warehouse** following a *Medallion Architecture* (Bronze, Silver, Gold layers) to consolidate sales data. It utilizes **ETL pipelines** to extract raw data, perform *cleansing and transformations*, and then load it into a structured **Star Schema** for easy reporting and *business intelligence*. The ultimate goal is to provide reliable data for *actionable insights* into customer behavior, product performance, and sales trends.
 
 
-## Visual Overview
-
-```mermaid
-flowchart TD
-    A0["Data Warehouse Medallion Architecture
-"]
-    A1["ETL Pipelines (Extract, Transform, Load)
-"]
-    A2["Data Cleansing and Transformation
-"]
-    A3["Star Schema Data Model
-"]
-    A4["Surrogate Keys
-"]
-    A5["Data Quality Checks
-"]
-    A6["Database and Schema Initialization
-"]
-    A6 -- "Initializes layers for" --> A0
-    A0 -- "Defines stages for" --> A1
-    A1 -- "Performs" --> A2
-    A2 -- "Aids in passing" --> A5
-    A0 -- "Hosts Gold layer as" --> A3
-    A3 -- "Utilizes" --> A4
-    A4 -- "Validated by" --> A5
-    A5 -- "Validates content of" --> A0
-```
 
 ## Chapters
 
@@ -48,7 +21,7 @@ flowchart TD
 7. [Data Quality Checks
 ](07_data_quality_checks_.md)
 
----------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
 
 
 
